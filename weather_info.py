@@ -1,8 +1,5 @@
-import os
+import config
 import requests
-
-# Store the API key in an environment variable
-os.environ['WEATHER_API_KEY'] = '4750eaed2e374f8be572ebc99bb34c12'
 
 # Function to get the city name from the user
 def get_city_name():
@@ -10,7 +7,7 @@ def get_city_name():
 
 # Function to fetch the current temperature of a given city from the OpenWeatherMap API
 def fetch_current_temperature(city_name):
-    api_key = os.getenv('WEATHER_API_KEY')
+    api_key = config.WEATHER_API_KEY  # Use the API key from the config module
     response = requests.get(f"http://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={api_key}")
     if response.status_code != 200:
         return None
