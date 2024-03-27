@@ -1,11 +1,16 @@
 import os
 import pytest
 import requests
+import sys
+
+# Add the main directory to the sys path to import config.py
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+import config  # Import the configuration module
 
 def test_weather_api():
-    # Define the city name and get the API key from environment variables
+    # Define the city name and get the API key from config module
     city_name = 'Tokio'
-    api_key = os.getenv('WEATHER_API_KEY')
+    api_key = config.WEATHER_API_KEY
 
     # Make a request to the weather API
     response = requests.get(f"http://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={api_key}")
