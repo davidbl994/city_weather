@@ -65,3 +65,12 @@ pytest -vs tests/
 After the tests are executed, an HTML report will be generated in the results/directory using the pytest-html library.
 
 ![test_report.png](test_report.png)
+
+
+
+Note:
+In case if there is an issue with module requests during script execution, please install requests using the next command:
+
+```bash
+python3 -m pip install requests
+```
